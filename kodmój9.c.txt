@@ -1,0 +1,58 @@
+/* Awiczenie 12.1 OBIEKT
+Program zlicza ilooa znaków (np. "x") z klawiatury. Program wykorzystuje
+zdefiniowany obiekt moj_licznik.
+*/
+
+#include <conio.h>
+#include <iostream.h>
+#include <ctype.h>
+using namespace std;
+
+class klasa_licz
+{
+public:
+   char zlicz_znak;
+   int licz;
+   void inicjuj(char znak);
+   void dodaj(void);
+} moj_licznik;
+
+void klasa_licz::inicjuj(char znak)
+{
+   zlicz_znak=znak;
+   licz=0;   
+}
+
+void klasa_licz::dodaj(void)
+{
+   licz++;                         // dodanie 1 do zmiennej licz
+}
+
+main()
+{
+   char znak = 'x';
+   moj_licznik.inicjuj(znak);
+   cout <<"Napisz kilka znaków " <<znak <<"  (znak q oznacza koniec):\n";
+   do
+   {
+   if ((znak=getche()) == moj_licznik.zlicz_znak)
+      moj_licznik.dodaj();
+   }
+   while (toupper(znak)!= 'Q');
+   cout <<"\nIlosc wystapien znaku " <<moj_licznik.zlicz_znak \
+        <<" : " <<moj_licznik.licz;
+
+   getche();
+   return 0;
+}
+
+/*
+  a) Zmien program tak, aby liczy3 ilooa liczb (np. 15) wczytanych z klawiatury. 
+  b) Zmien program tak, aby liczy3 ilooci dwóch liczb wczytanych z klawiatury.
+  c) Zmien program tak, aby liczy3 wszystkie wcioniete ma3e litery 'a' ... 'z'
+           // zadeklarowana tablica moj_licznik[26]
+           // for (i=0; i<26; i++) moj_licznik[i].inicjuj(i+'a')
+           // do {moj_licznik[(znak=getche())-'a'].dodaj() 
+  
+*/
+    
