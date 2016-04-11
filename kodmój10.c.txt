@@ -1,0 +1,53 @@
+// plk: KLDZIEDZ1.CPP
+
+#include <iostream>
+using namespace std;
+
+class C1{
+   protected:
+      int x;
+   public:
+      C1(void){x=1111;}
+      C1(int n){x=n;}
+      void pisz1(void){cout <<" Stara metoda z klasy C1  pisz x=  ";
+         cout <<x<< endl;}
+};
+class C2{
+  public:
+      int y;
+   public:
+      C2(){y=2222;}
+      C2(int n){y=n;}
+      void pisz2(){cout <<" Stara metoda z klasy C2  pisz y=  ";
+         cout <<y<< endl;}
+};
+class C3:public C1,C2{
+   public:
+      int z;
+   public:
+      C3(void){x=5; y=6; z=7;}
+      C3(int n){z=n; x=n+2; y=n+1;}
+      void pisz3(){cout <<" Pisz z z klasy C3" <<endl;
+         cout <<"   z= " <<z <<endl; 
+         // cout<<"  y= "<<y<<endl;           - nie widzi pola y - prywatne
+         }
+      void piszall(){cout <<" Pisz wszystko z klasy C3" <<endl;
+        pisz1();
+        pisz2();
+        pisz3();}
+      
+};
+
+int main(){
+    C1 obiekt1(11); obiekt1.pisz1();   //x=11
+    C2 obiekt2(12); obiekt2.pisz2();   //y=12
+    C3 obiekt3(33); obiekt3.pisz3();   //33
+    obiekt3.piszall();                 //35, 34, 33
+    C1 o1; o1.pisz1();   //x=1111
+    C2 o2; o2.pisz2();   //y=2222
+    C3 o3; o3.pisz3();   //7
+    o3.piszall();        //5, 6, 7   
+
+    cout << endl;   
+    system("pause");
+    return 0;}
