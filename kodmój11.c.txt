@@ -1,0 +1,31 @@
+/* ∆wiczenie 10_3 WSKAèNIKI
+  Wskaüniki do tablicy dwuwymiarowej
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+int *l1,*l2;
+l1=new int(5);
+l2=new int[10];
+cout <<*l1 <<"\t" <<l2[0];
+for(int *i=new int(0); *i<10; (*i)++) *(l2+*i)=*i;
+cout <<endl;
+for(int *i=new int(0); *i<10; (*i)++) cout<<l2[*i]<<" ";
+cout <<endl <<endl;
+int **dtab=new int *[10];
+for(int i=0;i<10;i++)
+dtab[i]=new int[10];
+for(int i=0;i<10;i++)
+for (int j=0;j<10; j++)
+dtab[i][j]=(i+1)*(j+1);
+for(int i=0;i<10;i++){
+for (int j=0;j<10; j++)
+cout <<dtab[i][j] <<"  ";
+cout <<endl;}
+
+cout << endl;
+    system("pause");
+    return 0;
+}
