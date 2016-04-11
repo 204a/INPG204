@@ -1,0 +1,46 @@
+/* Awiczenie 9.1
+Program wype3nia losowymi liczbami tablice totolotka i j1 wyowietla.
+Program nie sprawdza, czy liczby sa jednakowe.
+*/
+
+#include <iostream>
+#include <cstdio>
+#include <stdlib.h>
+using namespace std;
+
+int toto[6];
+int n;
+void wypelnij()
+{
+   for (int i=0; i<6; i++)
+   {
+      toto[i]=1+rand()%49;
+   }
+}
+void wyswietl()
+{
+   cout <<"Wylosowane liczby w tablicy toto: \n";
+   for (int i=0; i<6; i++)
+   {
+      cout<<toto[i] <<"  ";
+   }
+}
+
+int main()
+{
+   srand(time(NULL));            // inicjalizacja funkcji losowej rand
+   wypelnij();
+   wyswietl();
+
+   getchar();
+   return 0;
+}
+/*
+  a) Zmien program tak, aby wyowietlal liczby multilotka (20 liczb  od 1 do 80).
+  b) Zmien funkcje wypelniania tak, aby po wylosowaniu liczby program 
+       sprawdza3 czy w tablicy toto (od toto[0] do toto[i-1]) 
+       jest ju? taka wartooa - jeoli jest to ma losowac dalej,
+       jeoli nie ma takiej wartooci, to wstawia liczbe do tablicy.
+  c) Wyowietl zawartooa tablicy od konca do pocz1tku.
+  d) Zamiast liczb losuj ma3e litery (kody ASCII od 'a' do 'z').
+*/
